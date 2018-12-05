@@ -1,0 +1,54 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: petclinicnew2
+spec:
+  containers:
+    - name: petclinicnew2
+      image: lsureshk/assignment6:latest
+
+
+{
+  "kind": "Service",
+  "apiVersion": "v1",
+  "metadata": {
+    "name": "petclinicnew2",
+    "namespace": "default",
+    "selfLink": "/api/v1/namespaces/default/services/petclinicnew2",
+    "uid": "d7769b81-da61-11e8-a584-08002773eca9",
+    "resourceVersion": "38215",
+    "creationTimestamp": "2018-10-28T03:30:39Z",
+    "labels": {
+      "k8s-app": "petclinicnew2"
+    }
+  },
+  "spec": {
+    "ports": [
+      {
+        "name": "tcp-8080-8080-fk9mz",
+        "protocol": "TCP",
+        "port": 8080,
+        "targetPort": 8080,
+        "nodePort": 30161
+      },
+	{
+        "name": "tcp-8081-8081-fk9my",
+        "protocol": "TCP",
+        "port": 8081,
+        "targetPort": 8081,
+        "nodePort": 30161
+      }
+    ],
+    "selector": {
+      "k8s-app": "petclinicnew2"
+    },
+    "clusterIP": "10.107.77.212",
+    "type": "LoadBalancer",
+    "sessionAffinity": "None",
+    "externalTrafficPolicy": "Cluster"
+  },
+  "status": {
+    "loadBalancer": {}
+  }
+}
+
